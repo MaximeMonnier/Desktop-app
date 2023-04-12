@@ -4,44 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHL Connexion</title>
+    <title>DHL dashboard</title>
     <link rel="stylesheet" href="../ui/css/tailwind.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 </head>
 <body>
-    <!-- Formulaire de connexion -->
-    <section class="container h-screen flex mx-auto items-center">
-        <div class="container flex flex-col items-center">
-            <div class="flex justify-center">
-                <img class="w-52 h-36 mb-10" src="../ui/assets/img/dhl-3.png" alt="logo">
+    <!-- container dashboard -->
+    <!-- 1er container -->
+    <section class="container flex">
+        <div class="container relative w-1/5 border h-screen bg-[#FFCC00]">
+            <div class="flex flex-col items-center justify-center">
+                <img class="w-52" src="../ui/assets/img/dhl-3.png" alt="logo">
+                <h2 class="text-2xl font-medium">Dashboard</h2>
             </div>
-            <div class="flex justify-center">
-                <h1 class="text-5xl font-bold mb-20">Connexion</h1>
-            </div>
-            <div>
-                <form action="">
-                    <div class="flex justify-center mb-10">
-                        <label for="email"></label>
-                        <input class="rounded-xl border border-black h-10 w-60 pl-3 shadow-md shadow-black" type="email" name="email" id="email" placeholder="Email">
-                    </div>
-                    <div class="flex justify-center mb-10">
-                        <label for="password"></label>
-                        <input class="rounded-xl border border-black h-10 w-60 pl-3 shadow-md shadow-black" type="password" name="password" id="password" placeholder="Mot-de-pass">
-                    </div>
-                    <div class="flex justify-center">
-                        <button class="h-10 w-60 font-medium rounded-lg bg-[#FFCC00] shadow-sm shadow-[#FFCC00] hover:bg-[#D80613] hover:shadow-sm hover:shadow-[#D80613]  hover:text-white" type="submit">Envoyer</button>
-                    </div>
-                </form>
-            </div>
-            <div class="flex justify-center mt-8">
-                <p class="font-medium">Mot de passe oublié</p>
-            </div>
-            <div class="flex justify-center mt-6">
-                <input class="mr-2" type="checkbox" id="checkbox">
-                <label class="font-medium" for="checkbox">Se souvenir de moi</label>
+            <div class="mt-20">
+                <div class="flex">
+                    <a href="#" class="ml-3 mb-8 font-medium text-xl">historique des véhicules</a>
+                    <a class="mt-1.5 ml-2" href="#"><i class="fi fi-br-angle-right"></i></a>
+                </div>
+                <div class="flex">
+                    <a href="#" class="ml-3 mb-8 font-medium text-xl">Prise de véhicule</a>
+                    <a class="mt-1.5 ml-2" href="#"><i class="mt-10 ml-2 fi fi-br-angle-right"></i></a>
+                </div>
+                <div class="absolute bottom-0 left-0 h-20 w-full border-2 border-black flex rounded-lg">
+                    <img class="w-18 h-16 rounded-full mt-2 ml-2" src="../ui/assets/img/3551739.jpg" alt="avatar">
+                    <p class="ml-3 mt-10 text-md font-medium">Harry Potter</p>
+                    <a class="ml-3 mt-10 text-md text-red-700 font-medium "href="#">Deconnexion</a>
+                </div>
             </div>
         </div>
+        <!-- fin 1er container -->
+        <!-- 2em container -->
+        <div class="container w-4/5 ">
+            <h2 class="mt-16 ml-16 pb-6 text-4xl font-bold border-b-4	 border-[#FFCC00]">historique de véhicules</h2>
+            <div class="mt-16 ml-16">
+                <input class="border-2 border-black rounded-md w-full" type="search" id="search" name="search" placeholder="Rechercher un véhicule">
+                <button>Search</button>
+            </div>
+        </div>
+        <!-- fin 2em container -->
     </section>
-    <!-- Fin du formualire de connexion -->
+    <!-- fin container dashboard -->
     
 </body>
 </html>
