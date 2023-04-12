@@ -29,7 +29,7 @@ form.addEventListener("submit", async (e) => {
         };
         //requete envoyé au controller avec les données de stockage quis era passé au constructeur du model Product
         await vehiculeController.addOne(formData);
-        // document.location.href = "index.html";
+        document.location.href = "index.html";
     }
     catch (error){
         console.log(error);
