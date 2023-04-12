@@ -1,13 +1,17 @@
-// !!!
-// fichier si on utilise postgresql comme database
-// !!!
+const mysql = require('promise-mysql');
 
-const {Pool} = require('pg');
+const connection = mysql.createConnection({
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    port: process.env.MYSQL_PORT
+})
 
-const config = {
-  connectionString: process.env.DATABASE_URL
+function getConnection() {
+    return connection
 }
 
-const pool = new Pool(config);
-
-module.exports = pool;
+module.exports = {
+    getConnection
+}

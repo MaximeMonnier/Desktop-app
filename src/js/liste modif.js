@@ -2,7 +2,7 @@
 
 // const main = require("../js/main")
 
-const productContollermysql = require("../../app/controller/productContollermysql");
+const productContoller = require("../../app/controller/productContoller");
 
 const list = document.querySelector("#data");
 const formulaire = document.querySelector("#AjoutForm");
@@ -16,7 +16,7 @@ const desc = document.querySelector("#description");
 let modificationId;
 
 const getData = async () => {
-    listeData = await productContollermysql.findAll();
+    listeData = await productContoller.findAll();
     renderList(listeData);
 }
 
@@ -45,7 +45,7 @@ function renderList(produits) {
 }
 const Modifie = async (id) => {
 
-    const stockage = await productContollermysql.findOne(id);
+    const stockage = await productContoller.findOne(id);
     console.log(stockage)
     type.value = stockage.type_piece;
     nom.value = stockage.nom;
@@ -73,7 +73,7 @@ AjoutForm.addEventListener("submit", async (e) => {
             id: modificationId
         };
         //demande de promese vers le main
-        const Modifier = await productContollermysql.edit(stockage);
+        const Modifier = await productContoller.edit(stockage);
         console.log(Modifier);
         document.location.href = "modifier.html";
 

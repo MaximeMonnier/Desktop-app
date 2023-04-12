@@ -2,13 +2,13 @@
 
 // const Product = require("../js/main")
 
-const productContollermysql = require("../../app/controller/productContollermysql");
+const vehiculeController = require("../../app/controller/vehiculeController");
 
-const list = document.querySelector("#data");
+const vehiculeList = document.querySelector("#vehiculeList");
 
 const getData = async () => {
-    allProducts = await productContollermysql.findAll();
-    renderList(allProducts);
+    allVehicules = await vehiculeController.findAll();
+    renderList(allVehicules);
 }
 
 // async function init() {
@@ -19,17 +19,10 @@ const getData = async () => {
 
 getData();
 
-function renderList(produits) {
-  produits.forEach((produit) => {
-      list.innerHTML += `
-        <tr>
-            <td>${produit.id}</td>
-            <td>${produit.type_piece}</td>
-            <td>${produit.nom}</td>
-            <td>${produit.marque}</td>
-            <td>${produit.prix}</td>
-            <td>${produit.description}</td>
-            <td>${produit.stock}</td>
-        </tr>`
+function renderList(vehicules) {
+  vehicules.forEach((vehicule) => {
+    vehiculeList.innerHTML +=`
+        <p>${vehicule.nom}</p>
+      `
     });
 }
