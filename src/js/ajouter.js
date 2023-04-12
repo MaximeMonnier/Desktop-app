@@ -1,6 +1,6 @@
 // const main = require("../js/main")
 
-const productContollermysql = require("../../app/controller/productContollermysql");
+const productContollermysql = require("../../app/controller/productContoller");
 
 //Récupérer les données du formulaire
 
@@ -25,7 +25,7 @@ formulaire.addEventListener("submit", async (e) => {
             stock: stock.value,
         };
         //requete envoyé au controller avec les données de stockage quis era passé au constructeur du model Product
-        await productContollermysql.addOne(stockage);
+        await productContoller.addOne(stockage);
         document.location.href = "index.html";
     }
     catch (error){

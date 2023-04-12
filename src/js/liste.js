@@ -2,12 +2,12 @@
 
 // const Product = require("../js/main")
 
-const productContollermysql = require("../../app/controller/productContollermysql");
+const productContollermysql = require("../../app/controller/productContoller");
 
 const list = document.querySelector("#data");
 
 const getData = async () => {
-    allProducts = await productContollermysql.findAll();
+    allProducts = await productContoller.findAll();
     renderList(allProducts);
 }
 
@@ -20,8 +20,8 @@ const getData = async () => {
 getData();
 
 function renderList(produits) {
-  produits.forEach((produit) => {
-      list.innerHTML += `
+produits.forEach((produit) => {
+    list.innerHTML += `
         <tr>
             <td>${produit.id}</td>
             <td>${produit.type_piece}</td>

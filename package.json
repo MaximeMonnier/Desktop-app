@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "tail": "npx tailwindcss -i ./src/ui/css/styles.css -o ./src/ui/css/tailwind.css --watch",
     "start": "electron ."
   },
   "author": "Jérémy PAYET",
@@ -16,5 +16,8 @@
     "mysql2": "^3.2.0",
     "pg": "^8.10.0",
     "promise-mysql": "^5.2.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.1"
   }
 }

@@ -1,4 +1,4 @@
-const Product = require('../models/Productmysql');
+const Product = require('../models/Product');
 
 module.exports = {
 

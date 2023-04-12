@@ -1,4 +1,4 @@
-const productContollermysql = require("../../app/controller/productContollermysql");
+const productContollermysql = require("../../app/controller/productContoller");
 
 // const { remote } = require("electron")
 
@@ -7,7 +7,7 @@ const productContollermysql = require("../../app/controller/productContollermysq
 const list = document.querySelector("#data");
 
 const getData = async () => {
-    listeProduits = await productContollermysql.findAll();
+    listeProduits = await productContoller.findAll();
     renderList(listeProduits);
 }
 
@@ -37,11 +37,11 @@ function renderList(produits) {
 const Supprime = async (id) => {
     const reponse = confirm("Vous confirmez?");
     if (reponse) {
-        await productContollermysql.delete(id);
+        await productContoller.delete(id);
         document.location.href="supprimer.html";
     }
     else {
-       console.error();
+    console.error();
     }
     return;
 };

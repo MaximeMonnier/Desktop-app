@@ -2,7 +2,7 @@
 
 // const main = require("../js/main")
 
-const productContollermysql = require("../../app/controller/productContollermysql");
+const productContollermysql = require("../../app/controller/productContoller");
 
 const list = document.querySelector("#data");
 const formulaire = document.querySelector("#AjoutForm");
@@ -73,7 +73,7 @@ AjoutForm.addEventListener("submit", async (e) => {
             id: modificationId
         };
         //demande de promese vers le main
-        const Modifier = await productContollermysql.edit(stockage);
+        const Modifier = await productContoller.edit(stockage);
         console.log(Modifier);
         document.location.href = "modifier.html";
 
