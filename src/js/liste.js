@@ -29,6 +29,7 @@ function renderList(vehicules) {
   let dispo = 0;
 
   vehicules.forEach((vehicule) => {
+    console.log(vehicule)
     if (vehicule.statut == 0) {
       vehicule.statut = "emprunté";
     } else {
@@ -39,13 +40,10 @@ function renderList(vehicules) {
     const row = document.createElement('div');
     row.classList.add('flex', 'w-full', 'justify-between', 'mb-5');
     row.innerHTML = `
-    <div class="flex w-full justify-between mb-5">
       <span class="w-1/5">${vehicule.plaque}</span>
-      <span class="w-1/5">${vehicule.date}</span>
+      <span class="w-1/5">${vehicule.date.toLocaleDateString('fr-FR')}</span>
       <span class="w-1/5">${vehicule.statut}</span>
       <span class="w-1/5">${vehicule.prenom} ${vehicule.nom}</span>
-      <div id="actionsDiv" class="w-1/5"> </div>
-    </div>
     `
     const actionsRow = document.createElement('div');
     actionsRow.classList.add('w-1/5');
@@ -79,7 +77,6 @@ function renderList(vehicules) {
       actionsRow.appendChild(noneSpan);
 
     }
-
     row.appendChild(actionsRow);
     vehiculeList.appendChild(row);
 
