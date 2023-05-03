@@ -59,6 +59,7 @@ function renderList(vehicules) {
       deleteBtn.textContent = "Delete";
       editBtn.className = "mr-2";
       editBtn.addEventListener("click", (e) => {
+        sessionStorage.setItem("vehicule", JSON.stringify(vehicule));
         document.location.href = "modifier.html";
 
       });
@@ -79,7 +80,7 @@ function renderList(vehicules) {
 
     }
 
-    row.appendChild(actionsRow)
+    row.appendChild(actionsRow);
     vehiculeList.appendChild(row);
 
     // vehiculeList.innerHTML +=`

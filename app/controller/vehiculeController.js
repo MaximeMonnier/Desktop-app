@@ -38,9 +38,10 @@ module.exports = {
       }
     },
 
-    async edit(stockage) {
+    async edit(formData) {
       try {
-        const vehicule = await new Vehicule(stockage).edit();
+        console.log(formData)
+        const vehicule = await new Vehicule(formData).edit();
         return null;
       } catch (error) {
         console.log(error);

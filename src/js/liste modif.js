@@ -1,84 +1,50 @@
-// const { remote } = require("electron")
-
 // const main = require("../js/main")
 
-const productContoller = require("../../app/controller/productContoller");
+const vehiculeController = require("../../app/controller/vehiculeController");
 
-const list = document.querySelector("#data");
-const formulaire = document.querySelector("#AjoutForm");
-const type = document.querySelector("#typepiece");
-const nom = document.querySelector("#nom")
-const marque = document.querySelector("#marque");
-const prix = document.querySelector("#prix");
-const stock = document.querySelector("#stock");
-const desc = document.querySelector("#description");
+//Récupérer les données du formulaire
 
-let modificationId;
+const form = document.querySelector("#addForm");
+const name = document.querySelector("#name");
+const lastname = document.querySelector("#lastname");
+const immat = document.querySelector("#immat");
+const km = document.querySelector("#km");
+const trajet = document.querySelector("#trajet");
+const etat = document.querySelector('input[name="etat"]:checked');
+const returnCar = document.querySelector('input[name="returnCar"]:checked');
+const problem = document.querySelector("#problem");
 
-const getData = async () => {
-    listeData = await productContoller.findAll();
-    renderList(listeData);
-}
+const editedVehicule = JSON.parse(sessionStorage.getItem("vehicule"));
 
-async function init() {
-    getData();
-}
+console.log(editedVehicule);
+name.value = editedVehicule.nom;
+lastname.value = editedVehicule.prenom;
+immat.value = editedVehicule.plaque;
+km.value = editedVehicule.kilometre;
+trajet.value = editedVehicule.trajet;
+etat.value = editedVehicule.etat;
+problem.value = editedVehicule.probleme;
 
-init();
-
-function renderList(produits) {
-  produits.forEach((produit) => {
-        list.innerHTML += `
-        <tr>
-            <td>${produit.id}</td>
-            <td>${produit.type_piece}</td>
-            <td>${produit.nom}</td>
-            <td>${produit.marque}</td>
-            <td>${produit.prix}</td>
-            <td>${produit.description}</td>
-            <td>${produit.stock}</td>
-            <td>
-                <button class="btn btn-secondary btn-sm" onclick="Modifie(${produit.id})">Modifier</button>
-            </td>
-        </tr>`
-    });
-}
-const Modifie = async (id) => {
-
-    const stockage = await productContoller.findOne(id);
-    console.log(stockage)
-    type.value = stockage.type_piece;
-    nom.value = stockage.nom;
-    marque.value = stockage.marque;
-    prix.value = stockage.prix;
-    stock.value = stockage.stock;
-    desc.value = stockage.description;
-
-    modificationId = stockage.id;
-};
-
-AjoutForm.addEventListener("submit", async (e) => {
-    try {
-        e.preventDefault();
-
-        //initialiser les valeurs INPUT VS champ table stockage
-        const stockage = {
-            type_piece: type.value,
-            nom: nom.value,
-            marque: marque.value,
-            prix: prix.value,
-            description: desc.value,
-            stock: stock.value,
-            //on ajoute la propiété ID à l'objet afin de faire la modification dans la bdd
-            id: modificationId
-        };
-        //demande de promese vers le main
-        const Modifier = await productContoller.edit(stockage);
-        console.log(Modifier);
-        document.location.href = "modifier.html";
-
-    } catch (error) {
-        console.log(error);
-    }
-
+form.addEventListener("submit", async (e) => {
+  try {
+    e.preventDefault();
+    //initialiser les valeurs pour la table stockage
+    const formData = {
+      plaque: immat.value,
+      nom: name.value,
+      prenom: lastname.value,
+      kilometre: km.value,
+      trajet: trajet.value,
+      etat: etat.value,
+      probleme: problem.value,
+      statut: returnCar.value,
+      id: editedVehicule.id
+    };
+    //requete envoyé au controller avec les données de stockage quis era passé au constructeur du model Product
+    await vehiculeController.edit(formData);
+    document.location.href = "index.html";
+  }
+  catch (error){
+    console.log(error);
+  }
 });

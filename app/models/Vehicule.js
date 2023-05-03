@@ -80,7 +80,7 @@ class Vehicule {
     try {
       const connect = await getConnection();
       console.log('===================================')
-        console.log(this)
+      console.log(this)
 
       console.log('===================================')
 
