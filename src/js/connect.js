@@ -6,6 +6,8 @@ const password = document.querySelector("#password");
 const firstNameSpan = document.querySelector("#userFirstName");
 const lastNameSpan = document.querySelector("#userLastName");
 const exitSpan = document.querySelector("#userExit");
+const indexLink = document.querySelector("#indexLink");
+const addLink = document.querySelector("#addLink");
 
 if (sessionStorage.getItem('user')) {
   const user = JSON.parse(sessionStorage.getItem('user'));
@@ -13,6 +15,8 @@ if (sessionStorage.getItem('user')) {
   lastNameSpan.textContent = user.lastName;
   if (sessionStorage.getItem('user')) document.location.href = 'index.html';
 } else {
+  indexLink.setAttribute('disabled', '');
+  addLink.setAttribute('disabled', '');
   exitSpan.textContent = "Veuillez vous connecter";
 }
 
