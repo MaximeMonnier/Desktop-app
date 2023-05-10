@@ -7,13 +7,31 @@ const vehiculeController = require("../../app/controller/vehiculeController");
 const vehiculeList = document.querySelector("#vehiculeList");
 const dispoSpan = document.querySelector("#dispo");
 const totalSpan = document.querySelector("#total");
+const firstNameSpan = document.querySelector("#userFirstName");
+const lastNameSpan = document.querySelector("#userLastName");
+const exitSpan = document.querySelector("#userExit");
 const goEdit = document.querySelector("#goEdit");
 const goDelete = document.querySelector("#goDelete");
 
+const user = JSON.parse(sessionStorage.getItem('user'));
+
+if (user) {
+  console.log(user);
+  firstNameSpan.textContent = user.firstname;
+  lastNameSpan.textContent = user.lastName;
+} else {
+  document.location.href = 'connect.html'
+  exitSpan.textContent = "Veuillez vous connecter";
+}
 const getData = async () => {
     allVehicules = await vehiculeController.findAll();
     
     renderList(allVehicules);
+    exitSpan.addEventListener("click", (e) => {
+      sessionStorage.removeItem('user');
+      document.location.href = 'connect.html'
+
+    })
 }
 
 // async function init() {
@@ -49,7 +67,7 @@ function renderList(vehicules) {
     const actionsRow = document.createElement('div');
     actionsRow.classList.add('w-1/5');
 
-    if(vehicule.prenom+vehicule.nom === "HarryPotter") {
+    if(vehicule.prenom+vehicule.nom === user.lastName+user.firstname) {
 
       const editBtn = document.createElement('button');
       const deleteBtn = document.createElement('button');

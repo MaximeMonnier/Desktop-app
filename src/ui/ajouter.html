@@ -11,7 +11,7 @@
     </head>
     <body class="h-full">
       <div class="flex h-full">
-        <header class="bg-[#FECD00] h-full p-10 flex flex-col justify-between">
+        <header class="fixed bg-[#FECD00] h-full p-10 flex flex-col justify-between">
           <img src="./assets/logo/logodhl.png" alt="logo dhl" class="h-16 mb-10 mt-10">
           <span class="block text-center text-3xl mb-10 font-bold">Dashboard</span>
           <nav class="flex-1">
@@ -30,20 +30,20 @@
               <img src="./assets/logo/hp.png" alt="user pfp" class="h-auto w-auto">
             </div>
             <div class="font-semibold">
-              <span>
-                Harry
+              <span id="userLastName">
+                
               </span>
-              <span>
-                Potter
+              <span id="userFirstName">
+                
               </span>
             </div>
-            <span class="text-red-700 text-xs">
+            <span class="text-red-700 text-xs cursor-pointer" id="userExit">
               déconnexion
             </span>
           </div>
         </header>
 
-        <main class="h-full flex-1 p-20">
+        <main class="h-full ml-80 flex-1 p-20">
           <h1 class="inline-block font-semibold text-2xl border-b-solid border-b-4 border-b-[#FECD00] pb-2 mb-5">Prise de véhicule</h1>
           <form id="addForm">
             <div class="grid grid-cols-2 gap-4">
@@ -54,7 +54,6 @@
                     type="text"
                     id="name"
                     name="name"
-                    value=Potter
                     placeholder="votre nom"
                     class="p-2 bg-transparent border-solid border-2 border-black"
                   />
@@ -67,7 +66,6 @@
                     type="text"
                     id="lastname"
                     name="lastname"
-                    value=Harry
                     placeholder="votre prénom"
                     class="p-2 bg-transparent border-solid border-2 border-black"
                   />
@@ -80,7 +78,6 @@
                     type="text"
                     id="immat"
                     name="immat"
-                    value=ab898gn
                     placeholder="plaque d'immatriculation du véhicule"
                     class="p-2 bg-transparent border-solid border-2 border-black"
                   />
@@ -93,7 +90,6 @@
                     type="text"
                     id="km"
                     name="km"
-                    value=18000
                     placeholder="kilomètrage du véhicule"
                     class="p-2 bg-transparent border-solid border-2 border-black"
                   />
@@ -107,8 +103,6 @@
                   <input
                     type="text"
                     id="trajet"
-                    name="trajet"
-                    value=LePort
                     placeholder="votre trajet"
                     class="p-2 bg-transparent border-solid border-2 border-black"
                   />
@@ -142,7 +136,6 @@
                   type="text"
                   id="problem"
                   name="problem"
-                  value=aucun
                   placeholder="problèmes repérés sur le véhicule"
                   class="p-2 bg-transparent border-solid border-2 border-black"
                 />

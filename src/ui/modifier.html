@@ -11,7 +11,7 @@
     </head>
     <body class="h-full">
       <div class="flex h-full">
-        <header class="bg-[#FECD00] h-full p-10 flex flex-col justify-between">
+        <header class="fixed bg-[#FECD00] h-full p-10 flex flex-col justify-between">
           <img src="./assets/logo/logodhl.png" alt="logo dhl" class="h-16 mb-10 mt-10">
           <span class="block text-center text-3xl mb-10 font-bold">Dashboard</span>
           <nav class="flex-1">
@@ -30,20 +30,20 @@
               <img src="./assets/logo/hp.png" alt="user pfp" class="h-auto w-auto">
             </div>
             <div class="font-semibold">
-              <span>
-                Harry
+              <span id="userLastName">
+                
               </span>
-              <span>
-                Potter
+              <span id="userFirstName">
+                
               </span>
             </div>
-            <span class="text-red-700 text-xs">
+            <span class="text-red-700 text-xs cursor-pointer" id="userExit">
               déconnexion
             </span>
           </div>
         </header>
 
-        <main class="h-full flex-1 p-20">
+        <main class="h-full ml-80 flex-1 p-20">
           <h1 class="inline-block font-semibold text-2xl border-b-solid border-b-4 border-b-[#FECD00] pb-2 mb-5">Modification de véhicule</h1>
           <form id="addForm">
             <div class="grid grid-cols-2 gap-4">

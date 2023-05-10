@@ -13,6 +13,27 @@ const trajet = document.querySelector("#trajet");
 const etat = document.querySelector('input[name="etat"]:checked');
 const problem = document.querySelector("#problem");
 
+const firstNameSpan = document.querySelector("#userFirstName");
+const lastNameSpan = document.querySelector("#userLastName");
+const exitSpan = document.querySelector("#userExit");
+
+if (sessionStorage.getItem('user')) {
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  console.log(user);
+  firstNameSpan.textContent = user.firstname;
+  lastNameSpan.textContent = user.lastName;
+  lastname.setAttribute('value', user.lastName);
+  name.setAttribute('value', user.firstname);
+} else {
+  document.location.href = 'connect.html'
+  exitSpan.textContent = "Veuillez vous connecter";
+}
+
+exitSpan.addEventListener("click", (e) => {
+  sessionStorage.removeItem('user');
+  document.location.href = 'connect.html'
+
+})
 
 form.addEventListener("submit", async (e) => {
     try {

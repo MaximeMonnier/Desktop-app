@@ -15,7 +15,28 @@ const returnCars = document.querySelectorAll('input[name="returnCar"]');
 // const returnCar = document.querySelector('input[name=returnCar]:checked');
 const problem = document.querySelector("#problem");
 
+const firstNameSpan = document.querySelector("#userFirstName");
+const lastNameSpan = document.querySelector("#userLastName");
+const exitSpan = document.querySelector("#userExit");
+
 const editedVehicule = JSON.parse(sessionStorage.getItem("vehicule"));
+
+if (sessionStorage.getItem('user')) {
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  // console.log(user);
+  console.log(user.firstname)
+  firstNameSpan.textContent = user.firstname;
+  lastNameSpan.textContent = user.lastName;
+} else {
+  document.location.href = 'connect.html'
+  exitSpan.textContent = "Veuillez vous connecter";
+}
+
+exitSpan.addEventListener("click", (e) => {
+  sessionStorage.removeItem('user');
+  document.location.href = 'connect.html'
+
+})
 
 const getOriginEtat = (etats) => {
   for (const etat of etats) {

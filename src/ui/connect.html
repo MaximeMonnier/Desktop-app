@@ -22,22 +22,25 @@
               <li class="mb-3 h-5">
                 <a href="ajouter.html" class="inline-block hover:pl-2 duration-300 hover:text-lg  hover:text-[#D40511] hover:font-bold">Prise de véhicule <i class="inline-block border-solid border-black border-t-0 border-r-2 border-b-2 border-l-0 p-1 rotate-[-45deg]"></i></a>
               </li>
+              <li class="mb-3 h-5">
+                <a href="signup.html" class="inline-block hover:pl-2 duration-300 hover:text-lg  hover:text-[#D40511] hover:font-bold">Inscription <i class="inline-block border-solid border-black border-t-0 border-r-2 border-b-2 border-l-0 p-1 rotate-[-45deg]"></i></a>
+              </li>
             </ul>
           </nav>
-          <div class="flex justify-between items-center">
+          <div class=" flex justify-between items-center ">
             <div class="h-16 w-16 overflow-hidden rounded-full">
 
               <img src="./assets/logo/hp.png" alt="user pfp" class="h-auto w-auto">
             </div>
             <div class="font-semibold">
-              <span>
-                Harry
+              <span id="userLastName">
+                
               </span>
-              <span>
-                Potter
+              <span id="userFirstName">
+                
               </span>
             </div>
-            <span class="text-red-700 text-xs">
+            <span class="text-red-700 text-xs cursor-pointer" id="userExit">
               déconnexion
             </span>
           </div>
@@ -45,15 +48,18 @@
 
         <main class="h-full ml-80 flex-1 p-20">
           <h1 class="inline-block font-semibold text-2xl border-b-solid border-b-4 border-b-[#FECD00] pb-2 mb-20">Connexion</h1>
-          <form class="text-center">
+
+          <form class="text-center" id="connectForm">
 
             <label class="mb-5">
-              <p>Nom d'utilisateur</p>
+              <p>email</p>
               <input 
                 class="p-2 bg-transparent border-solid border-2 border-black"
                 placeholder="addresse email"
-                type="emailwxs"
+                type="email"
                 name="email"
+                value="hp@mail.com"
+                id="email"
                 required
               />
             </label>
@@ -64,6 +70,8 @@
                 class="p-2 bg-transparent border-solid border-2 border-black"
                 placeholder="mot de passe"
                 type="password"
+                value="test"
+                id="password"
                 name="password"
                 required
               />
@@ -76,6 +84,6 @@
           </form>
         </main>
       </div>
-      <script src="../js/liste.js"></script>
+      <script src="../js/connect.js"></script>
     </body>
 </html>
