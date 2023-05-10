@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DHL dashboard</title>
-    <link rel="stylesheet" href="../ui/css/tailwind.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 </head>
 <body>
     <!-- container dashboard -->
-    <!-- 1er container -->
+    <!-- 1er container menu -->
     <section class="container flex">
         <div class="container relative w-1/5 border h-screen bg-[#FFCC00]">
             <div class="flex flex-col items-center justify-center">
@@ -19,32 +21,58 @@
             </div>
             <div class="mt-20">
                 <div class="flex">
-                    <a href="#" class="ml-3 mb-8 font-medium text-xl">historique des véhicules</a>
+                    <a href="./index.html" class="ml-3 mb-8 font-medium text-xl">historique des véhicules</a>
                     <a class="mt-1.5 ml-2" href="#"><i class="fi fi-br-angle-right"></i></a>
                 </div>
                 <div class="flex">
-                    <a href="#" class="ml-3 mb-8 font-medium text-xl">Prise de véhicule</a>
+                    <a href="./prisev.html" class="ml-3 mb-8 font-medium text-sm xl:text-xl">Prise de véhicule</a>
                     <a class="mt-1.5 ml-2" href="#"><i class="mt-10 ml-2 fi fi-br-angle-right"></i></a>
                 </div>
                 <div class="absolute bottom-0 left-0 h-20 w-full border-2 border-black flex rounded-lg">
                     <img class="w-18 h-16 rounded-full mt-2 ml-2" src="../ui/assets/img/3551739.jpg" alt="avatar">
-                    <p class="ml-3 mt-10 text-md font-medium">Harry Potter</p>
-                    <a class="ml-3 mt-10 text-md text-red-700 font-medium "href="#">Deconnexion</a>
+                    <div class="flex justify-center items-center sm:flex-col xl:flex-col">
+                        <p class="ml-3 mt-10 text-md font-medium sm:mt-2">Harry Potter</p>
+                        <a class="ml-3 mt-10 text-md text-red-700 font-medium sm:mt-2"href="#">Deconnexion</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- fin 1er container -->
-        <!-- 2em container -->
+        <!-- fin 1er container menu -->
+        <!-- 2em container contenu-->
         <div class="container w-4/5 ">
-            <h2 class="mt-16 ml-16 pb-6 text-4xl font-bold border-b-4	 border-[#FFCC00]">historique de véhicules</h2>
-            <div class="mt-16 ml-16">
-                <input class="border-2 border-black rounded-md w-full" type="search" id="search" name="search" placeholder="Rechercher un véhicule">
-                <button>Search</button>
+            <div class="w-2/5">
+                <h2 class="mt-16 ml-16 pb-6 text-4xl font-bold border-b-4 border-[#FFCC00]">historique de véhicules</h2>
             </div>
+            <!-- bar de recherche -->
+            <div class="mt-16 ml-16 flex">
+                <input class="border-2 border-black rounded-md w-4/5 h-10 pl-3 mr-10" type="search" id="search" name="search" placeholder="Rechercher un véhicule">
+                <button class="h-10 w-1/5 mr-10 bg-[#FFCC00] rounded-lg shadow-md shadow-[#FFCC00] hover:bg-[#D80613] hover:shadow-md hover:shadow-[#D80613] hover:text-white">Search</button>
+            </div>
+            <!-- fin bar de recherche -->
+            <!-- tableau affichage des données véhicule -->
+            <section class="container flex justify-center mt-10">
+                <div id="array">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="border-2 w-52"></th>
+                                <th class="border-2 w-52">PLAQUE</th>
+                                <th class="border-2 w-52">DATE</th>
+                                <th class="border-2 w-52">STATUS</th>
+                                <th class="border-2 w-52">CHAUFFEUR</th>
+                                <th class="border-2 w-52">MODIFIER</th>
+                            </tr>
+                        </thead>
+                        <tbody id="data">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- fin tableau affichage des données véhicule -->
         </div>
-        <!-- fin 2em container -->
+        <!-- fin 2em container contenu-->
     </section>
     <!-- fin container dashboard -->
-    
+    <script src="../js/liste.js"></script>
 </body>
 </html>
