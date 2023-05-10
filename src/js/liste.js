@@ -38,6 +38,7 @@ function renderList(vehicules) {
     }
 
     const row = document.createElement('div');
+    row.setAttribute('id', `vehicule${vehicule.id}`)
     row.classList.add('flex', 'w-full', 'justify-between', 'mb-5');
     row.innerHTML = `
       <span class="w-1/5">${vehicule.plaque}</span>
@@ -63,7 +64,9 @@ function renderList(vehicules) {
       });
 
       deleteBtn.addEventListener("click", (e) => {
-        console.log("clicked");
+        console.log("clicked delete");
+        document.getElementById(`vehicule${vehicule.id}`).remove();
+        vehiculeController.delete(vehicule);
       });
 
       actionsRow.appendChild(editBtn);

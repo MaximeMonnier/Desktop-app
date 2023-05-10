@@ -109,10 +109,10 @@ class Vehicule {
     }
   }
 
-  async delete(id) {
+  async delete() {
     try {
       const connect = await getConnection();
-      const result = await connect.query("DELETE FROM vehicule WHERE id = ?", id);
+      const result = await connect.query("DELETE FROM vehicule WHERE id = ?", this.id);
       return null;
     } catch (error) {
       console.log(error);

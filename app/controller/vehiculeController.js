@@ -50,7 +50,7 @@ module.exports = {
 
     async delete(id) {
       try {
-        const vehicule = await new Vehicule().delete(id);
+        const vehicule = await new Vehicule(id).delete();
         return null;
       } catch (error) {
         console.log(error);

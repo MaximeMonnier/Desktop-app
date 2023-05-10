@@ -22,12 +22,9 @@
               <li class="mb-3 h-5">
                 <a href="ajouter.html" class="inline-block hover:pl-2 duration-300 hover:text-lg  hover:text-[#D40511] hover:font-bold">Prise de véhicule <i class="inline-block border-solid border-black border-t-0 border-r-2 border-b-2 border-l-0 p-1 rotate-[-45deg]"></i></a>
               </li>
-              <li class="mb-3 h-5">
-                <a href="connect.html" class="inline-block hover:pl-2 duration-300 hover:text-lg  hover:text-[#D40511] hover:font-bold">Connexion <i class="inline-block border-solid border-black border-t-0 border-r-2 border-b-2 border-l-0 p-1 rotate-[-45deg]"></i></a>
-              </li>
             </ul>
           </nav>
-          <div class=" flex justify-between items-center ">
+          <div class="flex justify-between items-center">
             <div class="h-16 w-16 overflow-hidden rounded-full">
 
               <img src="./assets/logo/hp.png" alt="user pfp" class="h-auto w-auto">
@@ -47,22 +44,36 @@
         </header>
 
         <main class="h-full ml-80 flex-1 p-20">
-          <h1 class="inline-block font-semibold text-2xl border-b-solid border-b-4 border-b-[#FECD00] pb-2 mb-20">Historique des véhicules</h1>
-          <div class="mb-3">
-            <span>Véhicule(s) disponible(s) : </span>
-            <span id="dispo"></span>
-            <span>/</span>
-            <span id="total"></span>
-          </div>
-          <div class="h-100" id="vehiculeList">
-            <div class="flex w-full justify-between mb-5 font-semibold">
-              <span class="w-1/5">Plaque</span>
-              <span class="w-1/5">Date</span>
-              <span class="w-1/5">Statut</span>
-              <span class="w-1/5">Chauffeur</span>
-              <span class="w-1/5">Actions</span>
+          <h1 class="inline-block font-semibold text-2xl border-b-solid border-b-4 border-b-[#FECD00] pb-2 mb-20">Connexion</h1>
+          <form >
+
+            <label class="mb-5">
+              <p>Nom d'utilisateur</p>
+              <input 
+                class="p-2 bg-transparent border-solid border-2 border-black"
+                placeholder="addresse email"
+                type="text"
+                name="email"
+                required
+              />
+            </label>
+    
+            <label class="mb-5">
+              <p>Mot de passe</p>
+              <input
+                class="p-2 bg-transparent border-solid border-2 border-black"
+                placeholder="mot de passe"
+                type="text"
+                name="password"
+                required
+              />
+            </label>
+            <div>
+
+              <button class="text-centerborder-solid border-[#FECD00] rounded-xl border-2 px-10 py-3 font-semibold hover:bg-[#FECD00] hover:text-[#D40511] hover:border-black mt-5" type="submit">Envoyer</button>
             </div>
-          </div>
+    
+          </form>
         </main>
       </div>
       <script src="../js/liste.js"></script>
