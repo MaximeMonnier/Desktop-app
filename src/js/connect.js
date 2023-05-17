@@ -22,6 +22,7 @@ if (sessionStorage.getItem('user')) {
 
 form.addEventListener("submit", async (e) => {
   try {
+    console.log(email.value)
     e.preventDefault();
     //initialiser les valeurs pour la table stockage
     const formData = {
@@ -29,7 +30,7 @@ form.addEventListener("submit", async (e) => {
       password: password.value
     };
 
-    //requete envoyé au controller avec les données de stockage quis era passé au constructeur du model Product
+    //requete envoyé au controller avec les données de stockage qui sera passé au constructeur du model Vehicule
     const user = await userController.login(formData);
     if (user.email === email.value) {
       sessionStorage.setItem('user', JSON.stringify(user))
